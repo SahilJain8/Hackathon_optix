@@ -1,0 +1,93 @@
+Name: Codes
+Type: FolderType
+Children:
+- Name: SpeedAccelaration
+  Id: g=156057a2e1a46b7527be7a95ae8cf22e
+  Type: NetLogic
+  Children:
+  - Name: ConfirmCalibration
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: PowerON
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Class: Method
+    Name: StartRandomizer
+  - Class: Method
+    Name: StopRandomizerAndZero
+  - Name: velocity
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: acc
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: log1
+    Id: g=d3d79c5774ae1e2593486b97ccce71eb
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: log2
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: log3
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Class: Method
+    Name: Logs
+  - Name: log4
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: RobotStatus
+  Type: NetLogic
+- Name: Robotinfo
+  Type: NetLogic
+  Children:
+  - Name: velocity
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: airtemperature
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: processtemperature
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: rotationalspeed
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: torque
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: toolwear
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: Temperature
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: Load
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: ProductType
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: isConnected
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: isBatteryLOw
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Faulty
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Running
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Disconnected
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Busy
+    Type: BaseDataVariableType
+    DataType: Boolean
