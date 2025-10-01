@@ -129,24 +129,28 @@ Children:
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: fill5yes
+    Id: g=6349b1a5e614f3427ee13c2df60e2770
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: fill5no
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: csyes
+    Id: g=1f201290a810e9332a5adad709439160
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: csno
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: wcyes
+    Id: g=36ec2f4d796005a2efebac66f6d258e6
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: wcno
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: viyes
+    Id: g=5a8b939ca5507a30b90a8e7189f2a984
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: vino

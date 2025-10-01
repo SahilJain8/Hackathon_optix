@@ -58,6 +58,7 @@ Children:
   - Name: FIll3
     Type: BaseDataVariableType
     DataType: Boolean
+    Value: true
   - Name: fill4
     Type: BaseDataVariableType
     DataType: Boolean
