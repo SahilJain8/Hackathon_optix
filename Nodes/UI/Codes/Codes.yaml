@@ -102,6 +102,9 @@ Children:
     Type: BaseDataVariableType
     DataType: String
     Value: "0"
+  - Name: batteryValue
+    Type: BaseDataVariableType
+    DataType: Int32
 - Name: Receipe
   Type: NetLogic
   Children:

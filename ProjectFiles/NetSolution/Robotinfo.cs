@@ -23,7 +23,7 @@ public class Robotinfo : BaseNetLogic
     private Task _worker;
     private readonly Random _rng = new Random();
 
-    private IUAVariable airT, procT, torque, rpm, velocity, toolWear, load, productId, temp, isConnected, isfaulty, Running, isBatterylow, disconnected, busy;
+    private IUAVariable airT, procT, torque, rpm, velocity, toolWear, load, productId, temp, isConnected, isfaulty, Running, isBatterylow, disconnected, busy, failure, failure_reason;
 
     public override void Start()
     {
@@ -61,7 +61,7 @@ public class Robotinfo : BaseNetLogic
             Log.Error($"[DB] General error: {ex.Message}");
         }
 
-        
+
         // variables must be siblings of this NetLogic node (same folder)
         airT = LogicObject.GetVariable("airtemperature");
         procT = LogicObject.GetVariable("processtemperature");
@@ -103,7 +103,7 @@ public class Robotinfo : BaseNetLogic
 
         bool faulty = _rng.Next(0, 100) < 10;  // e.g. 10% chance faulty
         isfaulty.Value = new UAValue(faulty);
-     
+
         if (faulty)
         {
             isConnected.Value = new UAValue(false);
@@ -150,21 +150,21 @@ public class Robotinfo : BaseNetLogic
                     float twNow = Convert.ToSingle(((UAValue)toolWear.Value).Value);
                     toolWear.Value = new UAValue(twNow + inc);
 
-                // ---------- new status logic ----------
+                    // ---------- new status logic ----------
 
 
 
-                
-                        isConnected.Value = new UAValue(true);
-                        Running.Value = new UAValue(true);
 
-                        bool batteryLow = _rng.Next(0, 100) < 30; // 30% chance low battery
-                        isBatterylow.Value = new UAValue(batteryLow);
-                    
+                    isConnected.Value = new UAValue(true);
+                    Running.Value = new UAValue(true);
+
+                    bool batteryLow = _rng.Next(0, 100) < 30; // 30% chance low battery
+                    isBatterylow.Value = new UAValue(batteryLow);
+
 
                     disconnected.Value = !isConnected.Value;
                     busy.Value = !Running.Value;
-                   
+
 
 
                     await Task.Delay(500, tok); // 2 Hz
@@ -172,13 +172,13 @@ public class Robotinfo : BaseNetLogic
             }, tok);
 
         }
-      
+
 
 
 
     }
     private static readonly HttpClient _http = new HttpClient();
-   
+
     public override void Stop()
     {
         try { _cts?.Cancel(); _worker?.Wait(250); }
@@ -203,6 +203,9 @@ public class Robotinfo : BaseNetLogic
                 tool_wear = Convert.ToSingle(((UAValue)toolWear.Value).Value)
             };
 
+            failure = LogicObject.GetVariable("Failure");
+            failure_reason = LogicObject.GetVariable("Reason");
+
             string json = JsonSerializer.Serialize(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -210,6 +213,19 @@ public class Robotinfo : BaseNetLogic
             string body = resp.Content.ReadAsStringAsync().Result;
 
             Log.Info($"[Robotinfo] Sent current vars. API replied: {body}");
+
+            using var doc = JsonDocument.Parse(body);
+            var root = doc.RootElement;
+
+            int isFailure = root.TryGetProperty("is_failure", out var p1) ? p1.GetInt32() : 0;
+            string failureType = root.TryGetProperty("failure_type", out var p2) ? p2.GetString() : "Unknown";
+
+            // Strings for both UA vars
+            failure.Value = (isFailure == 1) ? "Failure in future" : "No failure";                    // "1"/"0"
+            failure_reason.Value = (isFailure == 1) ? failureType : "No Failure";
+
+
+
         }
         catch (Exception ex)
         {

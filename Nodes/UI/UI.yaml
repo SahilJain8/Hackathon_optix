@@ -332,7 +332,7 @@ Children:
         - Name: Panel
           Type: NodePointer
           DataType: NodeId
-          Value: {"IdType":2,"Id":"7b4a27c50f1ad855b497d20a2c135036","Namespace":7}
+          Value: "/Objects/Hackathon_optix/UI/Screens/Production"
           Children:
           - Name: Kind
             Type: PropertyType
