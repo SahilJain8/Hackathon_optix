@@ -300,7 +300,7 @@ Children:
         - Name: Panel
           Type: NodePointer
           DataType: NodeId
-          Value: "/Objects/Hackathon_optix/UI/Screens/Station_Overview"
+          Value: "/Objects/Hackathon_optix/UI/Screens/Stations_Overview"
           Children:
           - Name: Kind
             Type: PropertyType
@@ -348,6 +348,7 @@ Children:
         - Name: Panel
           Type: NodePointer
           DataType: NodeId
+          Value: "/Objects/Hackathon_optix/UI/Screens/System_Overview"
           Children:
           - Name: Kind
             Type: PropertyType

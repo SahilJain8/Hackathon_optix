@@ -15,9 +15,9 @@
   <PropertyGroup>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
-  <Import Project="Hackathon_optix.references" />
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1"/>
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0"/>
   </ItemGroup>
+  <Import Project="Hackathon_optix.references"/>
 </Project>
