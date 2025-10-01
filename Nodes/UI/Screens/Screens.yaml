@@ -10737,7 +10737,7 @@ Children:
               Type: BaseDataVariableType
               DataType: NodeId
               Description: {"NamespaceIndex":3,"TextId":"OpenDialogDialogDescription"}
-              Value: {"IdType":2,"Id":"d5446f433da4382edc454985bc5b8d46","Namespace":7}
+              Value: "/Objects/Hackathon_optix/UI/Screens/Station1DialogBoxSc2"
             - Name: AliasNode
               Type: BaseDataVariableType
               DataType: NodeId
@@ -10857,7 +10857,7 @@ Children:
               Type: BaseDataVariableType
               DataType: NodeId
               Description: {"NamespaceIndex":3,"TextId":"OpenDialogDialogDescription"}
-              Value: {"IdType":2,"Id":"add51de4b13b7d2c949149935be3bfc8","Namespace":7}
+              Value: "/Objects/Hackathon_optix/UI/Screens/Station2DialogBoxSc2"
             - Name: AliasNode
               Type: BaseDataVariableType
               DataType: NodeId
