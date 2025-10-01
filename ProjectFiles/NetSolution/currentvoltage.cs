@@ -9,6 +9,9 @@ using FTOptix.EventLogger;
 using FTOptix.RAEtherNetIP;
 using FTOptix.CommunicationDriver;
 using FTOptix.Recipe;
+using FTOptix.ODBCStore;
+using FTOptix.Store;
+using FTOptix.DataLogger;
 #endregion
 
 public class currentvoltage : BaseNetLogic

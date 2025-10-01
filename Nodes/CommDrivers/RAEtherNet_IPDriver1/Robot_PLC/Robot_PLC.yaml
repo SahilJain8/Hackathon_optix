@@ -189,6 +189,16 @@ Children:
   Type: BaseDataVariableType
   DataType: Boolean
   Value: true
+  Children:
+  - Name: DynamicLink
+    Type: DynamicLink
+    DataType: NodePath
+    Value: "../../../../UI/Codes/Robotinfo/Faulty"
+    Children:
+    - Name: Mode
+      Type: BaseVariableType
+      DataType: DynamicLinkMode
+      Value: 2
 - Name: Running
   Type: BaseDataVariableType
   DataType: Boolean

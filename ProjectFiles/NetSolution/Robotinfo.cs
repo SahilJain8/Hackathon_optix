@@ -1,11 +1,20 @@
 ﻿#region Using directives
+using FTOptix.DataLogger;
+using FTOptix.EventLogger;
+using FTOptix.NetLogic;
+using FTOptix.ODBCStore;
+using FTOptix.Recipe;
+using FTOptix.Store;
+using Microsoft.Data.SqlClient;
 using System;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using UAManagedCore;
-using FTOptix.NetLogic;
-using FTOptix.EventLogger;
-using FTOptix.Recipe;
+using static System.Net.WebRequestMethods;
+
 #endregion
 
 public class Robotinfo : BaseNetLogic
@@ -18,6 +27,41 @@ public class Robotinfo : BaseNetLogic
 
     public override void Start()
     {
+
+        try
+        {
+            var csb = new SqlConnectionStringBuilder
+            {
+                // Force TCP by prefixing with "tcp:"
+                DataSource = "tcp:127.0.0.1,1433",
+                InitialCatalog = "ft optix",
+                IntegratedSecurity = true,     // Windows Auth
+                Encrypt = true,                // Default is true in recent drivers; set explicitly
+                TrustServerCertificate = true  // Use true only if you don't have a valid cert
+            };
+
+            using (var conn = new SqlConnection(csb.ConnectionString))
+            {
+                conn.Open();
+                Log.Info($"[DB] Connected: {conn.DataSource} / {conn.Database}");
+
+                using (var cmd = new SqlCommand("SELECT 1", conn))
+                {
+                    var x = cmd.ExecuteScalar();
+                    Log.Info($"[DB] Test query: {x}");
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            Log.Error($"[DB] SQL error: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"[DB] General error: {ex.Message}");
+        }
+
+        
         // variables must be siblings of this NetLogic node (same folder)
         airT = LogicObject.GetVariable("airtemperature");
         procT = LogicObject.GetVariable("processtemperature");
@@ -59,7 +103,7 @@ public class Robotinfo : BaseNetLogic
 
         bool faulty = _rng.Next(0, 100) < 10;  // e.g. 10% chance faulty
         isfaulty.Value = new UAValue(faulty);
-        faulty = true;
+     
         if (faulty)
         {
             isConnected.Value = new UAValue(false);
@@ -120,6 +164,7 @@ public class Robotinfo : BaseNetLogic
 
                     disconnected.Value = !isConnected.Value;
                     busy.Value = !Running.Value;
+                   
 
 
                     await Task.Delay(500, tok); // 2 Hz
@@ -132,7 +177,8 @@ public class Robotinfo : BaseNetLogic
 
 
     }
-
+    private static readonly HttpClient _http = new HttpClient();
+   
     public override void Stop()
     {
         try { _cts?.Cancel(); _worker?.Wait(250); }
@@ -141,4 +187,33 @@ public class Robotinfo : BaseNetLogic
     }
 
     private float Jitter(float sigma) => (float)((_rng.NextDouble() * 2 - 1) * sigma);
+
+    [ExportMethod]
+    public void Method1()
+    {
+        try
+        {
+            var payload = new
+            {
+                productID = Convert.ToString(((UAValue)productId.Value).Value),
+                air_temp = Convert.ToSingle(((UAValue)airT.Value).Value),
+                process_temp = Convert.ToSingle(((UAValue)procT.Value).Value),
+                rpm = Convert.ToSingle(((UAValue)rpm.Value).Value),
+                torque = Convert.ToSingle(((UAValue)torque.Value).Value),
+                tool_wear = Convert.ToSingle(((UAValue)toolWear.Value).Value)
+            };
+
+            string json = JsonSerializer.Serialize(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage resp = _http.PostAsync("http://192.168.42.27:8000/predict", content).Result;
+            string body = resp.Content.ReadAsStringAsync().Result;
+
+            Log.Info($"[Robotinfo] Sent current vars. API replied: {body}");
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"[Robotinfo] Send failed: {ex.Message}");
+        }
+    }
 }

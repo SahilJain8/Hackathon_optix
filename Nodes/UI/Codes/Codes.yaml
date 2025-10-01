@@ -43,6 +43,7 @@ Children:
 - Name: RobotStatus
   Type: NetLogic
 - Name: Robotinfo
+  Id: g=e64ee59618b6102295132785ed887552
   Type: NetLogic
   Children:
   - Name: velocity
@@ -89,5 +90,65 @@ Children:
     Type: BaseDataVariableType
     DataType: Boolean
   - Name: Busy
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Class: Method
+    Name: Method1
+  - Name: Failure
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: Reason
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: Receipe
+  Type: NetLogic
+  Children:
+  - Class: Method
+    Name: Method1
+  - Name: DryFIllYes
+    Id: g=da16bfa7ea4349fc9374286876b6e7de
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: DryfillNo
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill3yes
+    Id: g=7a8808a4a1f547b9467433091597b780
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill3no
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill4yes
+    Id: g=d11c13eba9c33e0904da3ad1c18249de
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill4no
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill5yes
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill5no
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: csyes
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: csno
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: wcyes
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: wcno
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: viyes
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: vino
     Type: BaseDataVariableType
     DataType: Boolean

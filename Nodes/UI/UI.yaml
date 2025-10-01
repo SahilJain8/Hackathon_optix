@@ -332,6 +332,7 @@ Children:
         - Name: Panel
           Type: NodePointer
           DataType: NodeId
+          Value: "/Objects/Hackathon_optix/UI/Screens/Production"
           Children:
           - Name: Kind
             Type: PropertyType

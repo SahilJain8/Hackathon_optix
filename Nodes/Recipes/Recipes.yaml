@@ -1,7 +1,7 @@
 Name: Recipes
 Type: RecipesCategoryFolder
 Children:
-- Name: RecipeSchema1
+- Name: Recipe1
   Type: RecipeSchema
   Children:
   - Name: Root
@@ -42,3 +42,255 @@ Children:
   - Class: Reference
     Target: ns=19;i=60
     Direction: Forward
+  - Name: Store
+    Type: NodePointer
+    DataType: NodeId
+    Value: "/Objects/Hackathon_optix/DataStores/ODBCDatabase1"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Types/ObjectTypes/BaseObjectType/Store"
+  - Name: DryFIll
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: FIll3
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill4
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: capStation
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: WeightCheck
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: visionInspect
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: WI_upper
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 300.29998779296875
+  - Name: WI_lower
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 250.89999389648438
+  - Name: fill3tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill3tank200
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 455.8999938964844
+  - Name: fill3tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 435.79998779296875
+  - Name: fill3tank400
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 234.6999969482422
+  - Name: fill4tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2422.0
+  - Name: fill5tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 222.60000610351563
+  - Name: fill4tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill4tank200
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill4tank400
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill5tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill5tank200
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2333.60009765625
+  - Name: fill5tank400
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: vired
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2.5999999046325684
+  - Name: virgreen
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: viblue
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: viredlower
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 4.599999904632568
+  - Name: virgreenlower
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: virbluelower
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill5
+    Type: BaseDataVariableType
+    DataType: Float
+- Name: Recipe2
+  Type: RecipeSchema
+  Children:
+  - Name: Root
+    Type: BaseObjectType
+  - Class: Reference
+    Target: ns=19;i=27
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=33
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=31
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=44
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=35
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=37
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=76
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=53
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=62
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=55
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=58
+    Direction: Forward
+  - Class: Reference
+    Target: ns=19;i=60
+    Direction: Forward
+  - Name: Store
+    Type: NodePointer
+    DataType: NodeId
+    Value: "/Objects/Hackathon_optix/DataStores/ODBCDatabase1"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Types/ObjectTypes/BaseObjectType/Store"
+  - Name: DryFIll
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: FIll3
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: fill4
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: capStation
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: WeightCheck
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: visionInspect
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: WI_upper
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 300.29998779296875
+  - Name: WI_lower
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 250.89999389648438
+  - Name: fill3tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill3tank200
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 455.8999938964844
+  - Name: fill3tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 435.79998779296875
+  - Name: fill3tank400
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 234.6999969482422
+  - Name: fill4tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2422.0
+  - Name: fill5tank300
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 222.60000610351563
+  - Name: fill4tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill4tank200
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill4tank400
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 4555.0
+  - Name: fill5tank100
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill5tank200
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2333.60009765625
+  - Name: fill5tank400
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: vired
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 2.5999999046325684
+  - Name: virgreen
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: viblue
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 456677.0
+  - Name: viredlower
+    Type: BaseDataVariableType
+    DataType: Float
+    Value: 4.599999904632568
+  - Name: virgreenlower
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: virbluelower
+    Type: BaseDataVariableType
+    DataType: Float
+  - Name: fill5
+    Type: BaseDataVariableType
+    DataType: Float

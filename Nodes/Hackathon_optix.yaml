@@ -63,7 +63,14 @@ Children:
 - File: System/System.yaml
 - File: Translations/Translations.yaml
 - File: Retentivity/Retentivity.yaml
-- Name: RecipeSchema1
+- Name: Recipe1
+  Type: Alias
+  DataType: NodeId
+  Children:
+  - Name: Kind
+    Type: PropertyType
+    DataType: NodeId
+- Name: Recipe2
   Type: Alias
   DataType: NodeId
   Children:
